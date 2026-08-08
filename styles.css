@@ -6,8 +6,7 @@
    No framework, no build step, and no JavaScript anywhere on the site.
 
    The logo is loud, so the page is deliberately quiet: teal and navy do
-   the structural work, and the magenta / orange / purple / green show up
-   only as small punctuation (eyebrow dots, card accents, hover states).
+   all the structural work. No decorative dots, gradients, or accent bars.
 
    Light mode only — the logo assumes a white background.
    System fonts only — the site makes zero external requests.
@@ -25,9 +24,6 @@
   --teal-deep:   #076070;  /* deepest teal — hover states                */
   --navy:        #0b1f5e;  /* "ORAL MOTOR SPECIALISTS" type — headings   */
   --purple:      #4b0d8c;  /* the spoon                                  */
-  --magenta:     #fe2269;  /* the lips                                   */
-  --orange:      #fd9900;  /* the letter R                               */
-  --green:       #3aae3a;  /* the letter C                               */
 
   /* structural tokens, derived from the palette above */
   --bg:          #ffffff;
@@ -162,20 +158,9 @@ p { text-wrap: pretty; }
   color: var(--teal-deep);
   margin-bottom: .8rem;
 }
-.eyebrow::before {
-  content: "";
-  width: .55rem;
-  height: .55rem;
-  border-radius: 50%;
-  background: var(--accent, var(--teal));
-  flex: none;
-}
 
-.a-teal    { --accent: var(--teal); }
-.a-magenta { --accent: var(--magenta); }
-.a-orange  { --accent: var(--orange); }
-.a-purple  { --accent: var(--purple); }
-.a-green   { --accent: var(--green); }
+.a-teal   { --accent: var(--teal); }
+.a-purple { --accent: var(--purple); }
 
 /* ── buttons ──────────────────────────────────────────────────────────── */
 .btn {
@@ -224,43 +209,23 @@ p { text-wrap: pretty; }
 
 .header-inner {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: .5rem 1.5rem;
-  padding-block: .85rem;
+  gap: 1rem;
+  padding-block: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem) 1rem;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
-  text-decoration: none;
-  color: var(--ink);
-}
-.brand-mark { width: 44px; height: 44px; flex: none; }
-.brand-name {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.4rem;
-  line-height: 1.05;
-  letter-spacing: -.02em;
-  color: var(--teal-dark);
-}
-.brand-sub {
-  display: block;
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-top: .15rem;
+.brand { display: block; text-decoration: none; line-height: 0; }
+.brand-logo {
+  width: 100%;
+  max-width: clamp(200px, 42vw, 340px);
+  height: auto;
 }
 
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: .25rem .35rem;
 }
 .site-nav a {
@@ -270,7 +235,7 @@ p { text-wrap: pretty; }
   font-size: .97rem;
   color: var(--navy);
   text-decoration: none;
-  padding: .5rem .7rem;
+  padding: .5rem .8rem;
   border-radius: 999px;
   border-bottom: 3px solid transparent;
   transition: background-color .16s ease, color .16s ease;
@@ -280,53 +245,55 @@ p { text-wrap: pretty; }
 .site-nav a[aria-current="page"] {
   color: var(--teal-deep);
   background: var(--tint);
-  border-bottom-color: var(--magenta);
+  border-bottom-color: var(--teal);
   border-radius: 999px 999px 4px 4px;
 }
 
-@media (min-width: 760px) {
-  .site-header { position: sticky; top: 0; z-index: 40; }
-  :target { scroll-margin-top: 6.5rem; }
-}
+:target { scroll-margin-top: 1.5rem; }
 
 @media (max-width: 759px) {
-  .header-inner { padding-block: .7rem .35rem; }
-  .site-nav { width: 100%; border-top: 1px solid var(--line-soft); padding-top: .35rem; }
-  .site-nav ul { justify-content: flex-start; }
-  .site-nav a { font-size: .92rem; padding: .45rem .6rem; }
-  :target { scroll-margin-top: 1.5rem; }
+  .site-nav a { font-size: .9rem; padding: .45rem .6rem; }
 }
 
-@media (max-width: 400px) {
-  .brand-mark { width: 38px; height: 38px; }
-  .brand-name { font-size: 1.2rem; }
-  .brand-sub { font-size: .6rem; letter-spacing: .1em; }
-}
+/* the homepage h1 sits mid-page now, so it reads at section scale */
+.h1-compact { font-size: clamp(1.55rem, 1.25rem + 1.35vw, 2.35rem); }
 
-/* ═══ HOME · HERO ═════════════════════════════════════════════════════════ */
-.hero {
-  background: #fff;
-  padding-block: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem) clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
-}
-
-.hero-grid {
+/* ═══ HOME · CLINICIANS ═══════════════════════════════════════════════════ */
+.clinician-grid {
   display: grid;
-  gap: clamp(1.75rem, 1rem + 3vw, 3.25rem);
-  align-items: center;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 2.25rem;
 }
+@media (min-width: 760px) { .clinician-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-@media (min-width: 900px) {
-  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
-}
-
-.hero-logo {
-  width: 100%;
-  max-width: 420px;
-  margin-inline: auto;
+.clinician-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
-
-.hero h1 { margin-bottom: 1rem; }
+.clinician-card h2 { font-size: clamp(1.35rem, 1.2rem + .6vw, 1.65rem); margin-bottom: .2rem; }
+.clinician-card h2 a { color: var(--ink); text-decoration: none; }
+.clinician-card h2 a:hover { color: var(--teal-deep); text-decoration: underline; }
+.clinician-role {
+  color: var(--muted);
+  font-size: .93rem;
+  margin-bottom: .9rem;
+}
+.clinician-card > p { color: var(--ink-soft); }
+.clinician-contact {
+  display: grid;
+  gap: .3rem;
+  margin-top: 1rem;
+  font-size: .95rem;
+}
+.clinician-contact a { text-decoration: none; overflow-wrap: anywhere; }
+.clinician-contact a:hover { text-decoration: underline; }
 
 /* ── "who we help" strip ──────────────────────────────────────────────── */
 .strip {
@@ -349,14 +316,6 @@ p { text-wrap: pretty; }
   font-size: .95rem;
   color: var(--navy);
 }
-.strip li::before {
-  content: "";
-  width: .5rem;
-  height: .5rem;
-  border-radius: 50%;
-  background: var(--accent, var(--teal));
-  flex: none;
-}
 
 /* ── cards ────────────────────────────────────────────────────────────── */
 .grid-3 {
@@ -378,13 +337,6 @@ p { text-wrap: pretty; }
   display: flex;
   flex-direction: column;
   min-width: 0;
-}
-.card-dot {
-  width: .7rem;
-  height: .7rem;
-  border-radius: 50%;
-  background: var(--accent, var(--teal));
-  margin-bottom: .9rem;
 }
 .card h3 { margin-bottom: .5rem; }
 .card p { color: var(--ink-soft); }
@@ -452,21 +404,11 @@ p { text-wrap: pretty; }
 .prose > * + * { margin-top: 1.1rem; }
 .prose h3 { margin-top: 2rem; }
 
-.list-check { margin-top: 1.25rem; display: grid; gap: .7rem; }
+.list-check { margin-top: 1.25rem; display: grid; }
 .list-check li {
-  position: relative;
-  padding-left: 1.75rem;
   min-width: 0;
-}
-.list-check li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: .55em;
-  width: .6rem;
-  height: .6rem;
-  border-radius: 50%;
-  background: var(--accent, var(--teal));
+  padding-block: .6rem;
+  border-bottom: 1px solid var(--line-soft);
 }
 .list-check strong { color: var(--ink); }
 
@@ -709,16 +651,18 @@ p { text-wrap: pretty; }
   gap: 2rem;
   grid-template-columns: 1fr;
 }
-@media (min-width: 720px)  { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1000px) { .footer-grid { grid-template-columns: 15rem repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); } }
 
-.footer-logo {
-  width: 100%;
-  max-width: 11rem;
-  border-radius: 12px;
-  background: #fff;
-  padding: .5rem;
+/* each clinician on a single line: name, phone, email */
+.footer-people { display: grid; gap: .7rem; }
+.footer-people li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem 1.1rem;
+  font-size: .95rem;
 }
+.footer-people strong { color: #fff; font-weight: 700; }
 
 .footer-col h2 {
   font-size: .78rem;
