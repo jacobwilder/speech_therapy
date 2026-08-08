@@ -305,8 +305,7 @@ p { text-wrap: pretty; }
 
 /* ═══ HOME · HERO ═════════════════════════════════════════════════════════ */
 .hero {
-  background:
-    linear-gradient(180deg, var(--tint) 0%, #fff 78%);
+  background: #fff;
   padding-block: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem) clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
 }
 
@@ -480,11 +479,12 @@ p { text-wrap: pretty; }
   margin-top: 1.6rem;
   background: var(--tint);
   border: 1px solid var(--line);
-  border-left: 5px solid var(--accent, var(--teal));
   border-radius: var(--radius-sm);
   padding: 1.1rem 1.25rem;
 }
-.callout h4 { margin-bottom: .3rem; }
+/* The callout heading is an <h3> so the document outline never skips a level
+   (h1 → h2 → h3). It is sized down here to keep its original appearance. */
+.callout h3 { font-size: 1.05rem; margin-bottom: .3rem; }
 .callout p { color: var(--ink-soft); }
 
 /* topic sections on What We Treat */
@@ -615,15 +615,15 @@ p { text-wrap: pretty; }
 .faq .answer > * + * { margin-top: .8rem; }
 
 .notice {
-  background: #fff8ec;
-  border: 1px solid #f6dcae;
-  border-left: 5px solid var(--orange);
+  background: #fff;
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 1.1rem 1.25rem;
   margin-top: 1.75rem;
-  color: #5a4415;
+  color: var(--muted);
+  font-size: .95rem;
 }
-.notice strong { color: #4a3810; }
+.notice strong { color: var(--ink); }
 
 /* ── contact ──────────────────────────────────────────────────────────── */
 .contact-grid {
@@ -637,7 +637,6 @@ p { text-wrap: pretty; }
 .contact-card {
   background: #fff;
   border: 1px solid var(--line);
-  border-top: 5px solid var(--accent, var(--teal));
   border-radius: var(--radius);
   padding: 1.6rem 1.5rem;
   box-shadow: var(--shadow-sm);
@@ -758,6 +757,13 @@ p { text-wrap: pretty; }
 }
 
 /* ── utilities ────────────────────────────────────────────────────────── */
+
+/* Hides text from sighted users while leaving it for screen readers — for
+   labels like "Menu" or "opens in a new tab" that a screen reader needs and a
+   sighted user gets from context. Currently unused.
+   NOT a place to put keywords. Text hidden from visitors but served to search
+   engines is cloaking; Google de-indexes for it. If a phrase is worth telling
+   Google, it is worth putting in a sentence a parent can read. */
 .visually-hidden {
   position: absolute;
   width: 1px; height: 1px;

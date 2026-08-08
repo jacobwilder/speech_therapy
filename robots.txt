@@ -1,0 +1,7 @@
+# Alphabet Soup — Oral Motor Specialists
+# The whole site is public. Nothing is disallowed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://alphabetsoupspeechtherapy.com/sitemap.xml
