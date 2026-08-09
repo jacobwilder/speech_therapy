@@ -21,7 +21,6 @@ Also still outstanding:
 | What | Where |
 | --- | --- |
 | Headshots for Bonnie and Malka | `who-we-are.html` — both show a "Photo coming soon" placeholder |
-| Bonnie's credentials, if she wants them listed | `who-we-are.html` — Malka's read "M.S., CCC-SLP, C/NDT"; Bonnie's bio came with none |
 | "About our office" blurb | `index.html` — drafted, needs a read-through |
 | The four service descriptions | `services.html` — drafted, needs a read-through |
 
