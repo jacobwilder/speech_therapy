@@ -24,6 +24,17 @@
   --teal-deep:   #076070;  /* deepest teal — hover states                */
   --navy:        #0b1f5e;  /* "ORAL MOTOR SPECIALISTS" type — headings   */
   --purple:      #4b0d8c;  /* the spoon                                  */
+  --magenta:     #fe2269;  /* the lips                                   */
+  --orange:      #fd9900;  /* the letter R                               */
+  --green:       #3aae3a;  /* the letter C                               */
+
+  /* darkened variants — the raw logo colours fail contrast as text.
+     Use these anywhere colour carries words. */
+  --teal-ink:    #076070;
+  --purple-ink:  #4b0d8c;
+  --magenta-ink: #b3004a;
+  --orange-ink:  #8a5200;
+  --green-ink:   #226e22;
 
   /* structural tokens, derived from the palette above */
   --bg:          #ffffff;
@@ -39,7 +50,7 @@
   --shadow-sm: 0 1px 2px rgb(11 31 94 / .05), 0 2px 8px rgb(11 31 94 / .05);
   --shadow-md: 0 2px 4px rgb(11 31 94 / .05), 0 14px 34px rgb(11 31 94 / .09);
 
-  --radius:    16px;
+  --radius:    20px;
   --radius-sm: 10px;
   --wrap:      72rem;
   --gutter:    clamp(1.15rem, 4vw, 2.5rem);
@@ -159,8 +170,20 @@ p { text-wrap: pretty; }
   margin-bottom: .8rem;
 }
 
-.a-teal   { --accent: var(--teal); }
-.a-purple { --accent: var(--purple); }
+/* Each a-* class sets a colour pair: --accent for shapes and fills,
+   --accent-ink for anything that has to be legible as text. */
+.a-teal    { --accent: var(--teal);    --accent-ink: var(--teal-ink); }
+.a-purple  { --accent: var(--purple);  --accent-ink: var(--purple-ink); }
+.a-magenta { --accent: var(--magenta); --accent-ink: var(--magenta-ink); }
+.a-orange  { --accent: var(--orange);  --accent-ink: var(--orange-ink); }
+.a-green   { --accent: var(--green);   --accent-ink: var(--green-ink); }
+
+/* section headings pick up their section's colour */
+.a-teal > h2, .a-purple > h2, .a-magenta > h2, .a-orange > h2, .a-green > h2,
+.topic.a-teal > h2, .topic.a-purple > h2, .topic.a-orange > h2 {
+  color: var(--accent-ink, var(--ink));
+}
+.eyebrow { color: var(--accent-ink, var(--teal-deep)); }
 
 /* ── buttons ──────────────────────────────────────────────────────────── */
 .btn {
@@ -203,8 +226,31 @@ p { text-wrap: pretty; }
    onto a second row underneath the logo.
    ═══════════════════════════════════════════════════════════════════════ */
 .site-header {
+  position: relative;
+  overflow: hidden;
   background: #fff;
   border-bottom: 1px solid var(--line);
+}
+/* Faded balloons drifting at either edge. Decorative only, so they are
+   background images rather than markup — nothing for a screen reader to
+   announce, and they cannot push the layout around. */
+.site-header::before,
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  width: 15rem;
+  height: 17rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .16;
+  pointer-events: none;
+}
+.site-header::before { left: -3.5rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%28-8%2070%2095%29%22%3E%3Cellipse%20cx%3D%2270%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cellipse%20cx%3D%2256.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M66%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cpath%20d%3D%22M70%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%230e9cb4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%287%20152%2058%29%22%3E%3Cellipse%20cx%3D%22152%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23fe2269%22%2F%3E%3Cellipse%20cx%3D%22141.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M148%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23fe2269%22%2F%3E%3Cpath%20d%3D%22M152%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23fe2269%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-5%20118%20152%29%22%3E%3Cellipse%20cx%3D%22118%22%20cy%3D%22152%22%20rx%3D%2225%22%20ry%3D%2232.0%22%20fill%3D%22%23fd9900%22%2F%3E%3Cellipse%20cx%3D%22109.25%22%20cy%3D%22141.76%22%20rx%3D%225.0%22%20ry%3D%224.8%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M114%2C184.0%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23fd9900%22%2F%3E%3Cpath%20d%3D%22M118%2C189.0%20c7%2C12.5%20-9%2C22.5%20-2%2C40.0%22%20fill%3D%22none%22%20stroke%3D%22%23fd9900%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+.site-header::after  { right: -3.5rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%289%20190%2095%29%22%3E%3Cellipse%20cx%3D%22190%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%234b0d8c%22%2F%3E%3Cellipse%20cx%3D%22176.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M186%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%234b0d8c%22%2F%3E%3Cpath%20d%3D%22M190%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%234b0d8c%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-6%20108%2058%29%22%3E%3Cellipse%20cx%3D%22108%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%233aae3a%22%2F%3E%3Cellipse%20cx%3D%2297.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M104%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%233aae3a%22%2F%3E%3Cpath%20d%3D%22M108%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%233aae3a%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%285%20142%20152%29%22%3E%3Cellipse%20cx%3D%22142%22%20cy%3D%22152%22%20rx%3D%2225%22%20ry%3D%2232.0%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cellipse%20cx%3D%22133.25%22%20cy%3D%22141.76%22%20rx%3D%225.0%22%20ry%3D%224.8%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M138%2C184.0%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cpath%20d%3D%22M142%2C189.0%20c7%2C12.5%20-9%2C22.5%20-2%2C40.0%22%20fill%3D%22none%22%20stroke%3D%22%230e9cb4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+
+@media (max-width: 900px) {
+  .site-header::before, .site-header::after { display: none; }
 }
 
 .header-inner {
@@ -308,13 +354,13 @@ p { text-wrap: pretty; }
   gap: .6rem 1.6rem;
 }
 .strip li {
-  display: flex;
-  align-items: center;
-  gap: .55rem;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: .95rem;
-  color: var(--navy);
+  color: var(--accent-ink, var(--navy));
+  background: color-mix(in srgb, var(--accent, var(--teal)) 13%, #fff);
+  border-radius: 999px;
+  padding: .45rem 1.1rem;
 }
 
 /* ── cards ────────────────────────────────────────────────────────────── */
@@ -329,8 +375,8 @@ p { text-wrap: pretty; }
 
 .card {
   position: relative;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent, var(--teal)) 7%, #fff);
+  border: 1px solid color-mix(in srgb, var(--accent, var(--teal)) 22%, var(--line));
   border-radius: var(--radius);
   padding: 1.6rem 1.5rem 1.5rem;
   box-shadow: var(--shadow-sm);
@@ -338,14 +384,14 @@ p { text-wrap: pretty; }
   flex-direction: column;
   min-width: 0;
 }
-.card h3 { margin-bottom: .5rem; }
+.card h3 { margin-bottom: .5rem; color: var(--accent-ink, var(--ink)); }
 .card p { color: var(--ink-soft); }
 .card-link {
   margin-top: auto;
   padding-top: 1.1rem;
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--teal-dark);
+  color: var(--accent-ink, var(--teal-dark));
   text-decoration: none;
 }
 .card-link:hover { color: var(--teal-deep); text-decoration: underline; }
@@ -639,10 +685,28 @@ p { text-wrap: pretty; }
 
 /* ═══ FOOTER ══════════════════════════════════════════════════════════════ */
 .site-footer {
+  position: relative;
+  overflow: hidden;
   background: var(--navy);
-  color: #d7deef;
-  padding-block: clamp(2.5rem, 1.9rem + 2.6vw, 3.75rem) 1.75rem;
+  color: #e7edfb;
+  padding-block: clamp(3rem, 2.2rem + 3vw, 4.5rem) 1.75rem;
 }
+.site-footer::before,
+.site-footer::after {
+  content: "";
+  position: absolute;
+  bottom: -2rem;
+  width: 14rem;
+  height: 16rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .13;
+  pointer-events: none;
+}
+.site-footer::before { left: -3rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%28-8%2070%2095%29%22%3E%3Cellipse%20cx%3D%2270%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%238fe3f2%22%2F%3E%3Cellipse%20cx%3D%2256.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M66%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%238fe3f2%22%2F%3E%3Cpath%20d%3D%22M70%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%238fe3f2%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%287%20152%2058%29%22%3E%3Cellipse%20cx%3D%22152%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23ffd166%22%2F%3E%3Cellipse%20cx%3D%22141.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M148%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23ffd166%22%2F%3E%3Cpath%20d%3D%22M152%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23ffd166%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+.site-footer::after  { right: -3rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%289%20190%2095%29%22%3E%3Cellipse%20cx%3D%22190%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%23f7a8c4%22%2F%3E%3Cellipse%20cx%3D%22176.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M186%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23f7a8c4%22%2F%3E%3Cpath%20d%3D%22M190%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%23f7a8c4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-6%20108%2058%29%22%3E%3Cellipse%20cx%3D%22108%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23a8e6a3%22%2F%3E%3Cellipse%20cx%3D%2297.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M104%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23a8e6a3%22%2F%3E%3Cpath%20d%3D%22M108%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23a8e6a3%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+@media (max-width: 900px) { .site-footer::before, .site-footer::after { display: none; } }
+.site-footer .wrap { position: relative; z-index: 1; }
 .site-footer a { color: #ffffff; text-decoration: none; }
 .site-footer a:hover { color: #8fe3f2; text-decoration: underline; }
 
@@ -654,32 +718,38 @@ p { text-wrap: pretty; }
 @media (min-width: 760px) { .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); } }
 
 /* each clinician on a single line: name, phone, email */
-.footer-people { display: grid; gap: .7rem; }
+.footer-people { display: grid; gap: 1.1rem; }
 .footer-people li {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: .3rem 1.1rem;
-  font-size: .95rem;
+  gap: .35rem 1.35rem;
+  font-size: 1.05rem;
 }
-.footer-people strong { color: #fff; font-weight: 700; }
+.footer-people strong {
+  font-family: var(--font-display);
+  color: #ffd166;
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -.01em;
+}
 
 .footer-col h2 {
-  font-size: .78rem;
-  letter-spacing: .13em;
+  font-size: .9rem;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: #8fe3f2;
-  margin-bottom: .8rem;
+  margin-bottom: 1rem;
 }
-.footer-col p, .footer-col li { font-size: .95rem; }
+.footer-col p, .footer-col li { font-size: 1.05rem; }
 .footer-col ul { display: grid; gap: .5rem; }
 .footer-col address { font-style: normal; line-height: 1.55; }
 .footer-name {
   font-family: var(--font-display);
   font-weight: 800;
-  color: #fff;
-  font-size: 1.05rem;
-  margin-bottom: .3rem;
+  color: #ffd166;
+  font-size: 1.3rem;
+  margin-bottom: .45rem;
 }
 .footer-contact a { overflow-wrap: anywhere; }
 
