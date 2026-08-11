@@ -20,7 +20,7 @@ Also still outstanding:
 
 | What | Where |
 | --- | --- |
-| Headshots for Bonnie and Malka | `who-we-are.html` — both show a "Photo coming soon" placeholder |
+| Headshot for Malka | `who-we-are.html` — still shows a "Photo coming soon" placeholder. Bonnie's is in place. |
 | "About our office" blurb | `index.html` — drafted, needs a read-through |
 | The four service descriptions | `services.html` — drafted, needs a read-through |
 
@@ -60,8 +60,9 @@ from the logo artwork (teal `#0e9cb4`, navy `#0b1f5e`, purple, magenta, orange, 
 Change them there and the whole site follows.
 
 **Adding a headshot** — drop the file in `assets/`, then in `who-we-are.html` replace
-the `<div class="photo-placeholder">` block with an `<img>`. The exact markup is in a
-comment right above each placeholder. Portrait orientation, ~600px wide, 4:5 frame.
+the `<div class="photo-placeholder">` block with an `<img class="bio-photo">`. The exact
+markup is in a comment right above the remaining placeholder. Portrait orientation,
+~600px wide, 4:5 frame — `.bio-photo` in `styles.css` crops anything else to fit.
 
 **Contact details** appear on `contact.html` *and* in the footer of all six pages —
 update both. Keep `tel:` links in `+1` format (`tel:+19177639785`) even though the

@@ -522,6 +522,16 @@ p { text-wrap: pretty; }
   margin-bottom: 1.1rem;
 }
 
+.bio-photo {
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  border-radius: var(--radius);
+}
+
 .photo-placeholder {
   aspect-ratio: 4 / 5;
   width: 100%;
