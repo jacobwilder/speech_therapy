@@ -807,6 +807,11 @@ p { text-wrap: pretty; }
 .footer-person a { display: block; overflow-wrap: anywhere; font-size: 1.05rem; }
 .footer-person a + a { margin-top: .35rem; }
 
+/* centre office column sits smaller than the two clinician columns */
+.footer-office .footer-name { font-size: 1.05rem; }
+.footer-office address,
+.footer-office .footer-email a { font-size: .88rem; }
+
 .footer-col h2 {
   font-size: .9rem;
   letter-spacing: .14em;
