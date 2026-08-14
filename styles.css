@@ -796,24 +796,16 @@ p { text-wrap: pretty; }
   gap: 2rem;
   grid-template-columns: 1fr;
 }
-@media (min-width: 760px) { .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); } }
+/* Three columns: Bonnie (left) · Alphabet Soup (centre) · Malka (right). */
+@media (min-width: 760px) {
+  .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  .footer-office { text-align: center; }
+  .footer-person--right { text-align: right; }
+}
 
-/* each clinician on a single line: name, phone, email */
-.footer-people { display: grid; gap: 1.1rem; }
-.footer-people li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: .35rem 1.35rem;
-  font-size: 1.05rem;
-}
-.footer-people strong {
-  font-family: var(--font-display);
-  color: #ffd166;
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: -.01em;
-}
+/* clinician columns: name, then phone and email stacked */
+.footer-person a { display: block; overflow-wrap: anywhere; font-size: 1.05rem; }
+.footer-person a + a { margin-top: .35rem; }
 
 .footer-col h2 {
   font-size: .9rem;
