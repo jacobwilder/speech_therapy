@@ -237,30 +237,15 @@ p { text-wrap: pretty; }
 .site-header {
   position: relative;
   overflow: hidden;
-  background: var(--header-blue);
-  border-bottom: 1px solid var(--line);
-}
-/* Scattered colour dots drifting at either edge — the confetti-circle motif
-   from the brand artwork. Decorative only, so they are background images
-   rather than markup — nothing for a screen reader to announce, and they
-   cannot push the layout around. */
-.site-header::before,
-.site-header::after {
-  content: "";
-  position: absolute;
-  top: -1.5rem;
-  width: 15rem;
-  height: 17rem;
+  background-color: #fff;
+  /* Muted confetti circles of varied sizes, spread across the whole header.
+     Decorative only — a background image, so nothing for a screen reader to
+     announce and it cannot push the layout around. */
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201280%20300%27%20preserveAspectRatio%3D%27xMidYMid%20slice%27%3E%3Ccircle%20cx%3D%27298%27%20cy%3D%27192%27%20r%3D%2722%27%20fill%3D%27%23f2b8b0%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271087%27%20cy%3D%2738%27%20r%3D%2712%27%20fill%3D%27%23a9ddeb%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27108%27%20cy%3D%27249%27%20r%3D%2742%27%20fill%3D%27%23bfe3bd%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27166%27%20cy%3D%27212%27%20r%3D%279%27%20fill%3D%27%23d3bfe8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27482%27%20cy%3D%2736%27%20r%3D%2712%27%20fill%3D%27%23d3bfe8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271148%27%20cy%3D%2753%27%20r%3D%279%27%20fill%3D%27%23bfe3bd%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27802%27%20cy%3D%2715%27%20r%3D%2742%27%20fill%3D%27%23bfe3bd%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271130%27%20cy%3D%2758%27%20r%3D%279%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27285%27%20cy%3D%27266%27%20r%3D%2726%27%20fill%3D%27%23f7d0a1%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27621%27%20cy%3D%27276%27%20r%3D%2742%27%20fill%3D%27%23f5e6a8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271181%27%20cy%3D%27282%27%20r%3D%2712%27%20fill%3D%27%23bfe3bd%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27189%27%20cy%3D%27270%27%20r%3D%2722%27%20fill%3D%27%23f7d0a1%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271006%27%20cy%3D%27262%27%20r%3D%2716%27%20fill%3D%27%23d3bfe8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27943%27%20cy%3D%27289%27%20r%3D%2722%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27603%27%20cy%3D%27117%27%20r%3D%2722%27%20fill%3D%27%23f5e6a8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27157%27%20cy%3D%27284%27%20r%3D%2716%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271003%27%20cy%3D%27165%27%20r%3D%2736%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271237%27%20cy%3D%2727%27%20r%3D%2718%27%20fill%3D%27%23f7d0a1%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27846%27%20cy%3D%2774%27%20r%3D%2736%27%20fill%3D%27%23a9ddeb%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271207%27%20cy%3D%27244%27%20r%3D%2722%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27181%27%20cy%3D%27128%27%20r%3D%2712%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27114%27%20cy%3D%27148%27%20r%3D%2712%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27780%27%20cy%3D%27167%27%20r%3D%2718%27%20fill%3D%27%23f2b8b0%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27717%27%20cy%3D%2776%27%20r%3D%2730%27%20fill%3D%27%23f7d0a1%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27110%27%20cy%3D%27101%27%20r%3D%2730%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27497%27%20cy%3D%27193%27%20r%3D%2714%27%20fill%3D%27%23d3bfe8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27812%27%20cy%3D%27271%27%20r%3D%2730%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27871%27%20cy%3D%27271%27%20r%3D%2714%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27724%27%20cy%3D%27184%27%20r%3D%2726%27%20fill%3D%27%23bfe3bd%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27159%27%20cy%3D%2780%27%20r%3D%2714%27%20fill%3D%27%23f5e6a8%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27467%27%20cy%3D%27-4%27%20r%3D%2716%27%20fill%3D%27%23f3c2d5%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27363%27%20cy%3D%27124%27%20r%3D%2742%27%20fill%3D%27%23b9cdef%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%27746%27%20cy%3D%27302%27%20r%3D%2736%27%20fill%3D%27%23a9ddeb%27%20fill-opacity%3D%270.55%27%2F%3E%3Ccircle%20cx%3D%271045%27%20cy%3D%27306%27%20r%3D%2714%27%20fill%3D%27%23f2b8b0%27%20fill-opacity%3D%270.55%27%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
-  background-size: contain;
-  opacity: .4;
-  pointer-events: none;
-}
-.site-header::before { left: -3.5rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%2792%27%20r%3D%2740%27%20fill%3D%27%23e23b2e%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%2758%27%20r%3D%2722%27%20fill%3D%27%23fd9900%27%2F%3E%3Ccircle%20cx%3D%27112%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%233aae3a%27%2F%3E%3Ccircle%20cx%3D%2772%27%20cy%3D%27214%27%20r%3D%2728%27%20fill%3D%27%232b7fe0%27%2F%3E%3Ccircle%20cx%3D%27172%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%237a1fb8%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23ffce1a%27%2F%3E%3Ccircle%20cx%3D%27122%27%20cy%3D%2796%27%20r%3D%2710%27%20fill%3D%27%23fe2269%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%230e9cb4%27%2F%3E%3Ccircle%20cx%3D%27204%27%20cy%3D%2792%27%20r%3D%278%27%20fill%3D%27%233aae3a%27%2F%3E%3C%2Fsvg%3E"); }
-.site-header::after  { right: -3.5rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%27196%27%20cy%3D%2792%27%20r%3D%2738%27%20fill%3D%27%237a1fb8%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2758%27%20r%3D%2720%27%20fill%3D%27%23fe2269%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%232b7fe0%27%2F%3E%3Ccircle%20cx%3D%27182%27%20cy%3D%27208%27%20r%3D%2726%27%20fill%3D%27%233aae3a%27%2F%3E%3Ccircle%20cx%3D%2792%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%23fd9900%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23e23b2e%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%2796%27%20r%3D%2710%27%20fill%3D%27%23ffce1a%27%2F%3E%3Ccircle%20cx%3D%27226%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%230e9cb4%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%2796%27%20r%3D%278%27%20fill%3D%27%237a1fb8%27%2F%3E%3C%2Fsvg%3E"); }
-
-@media (max-width: 900px) {
-  .site-header::before, .site-header::after { display: none; }
+  background-position: center;
+  background-size: cover;
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
