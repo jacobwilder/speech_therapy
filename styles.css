@@ -37,10 +37,19 @@
   --green-ink:   #226e22;
 
   /* structural tokens, derived from the palette above */
-  --bg:          #ffffff;
+  --bg:          #fdf6ec;  /* warm cream — the page background            */
   --surface:     #ffffff;
   --tint:        #f2fafb;  /* pale teal band                             */
   --tint-navy:   #f6f8fd;  /* pale navy band                             */
+  --header-blue: #e9effb;  /* soft periwinkle behind the logo            */
+
+  /* nav-tab colours — the five hues in the word "alphabet" on the logo,
+     darkened just enough to stay legible as bold text on a light band */
+  --nav-orange:  #d9730a;
+  --nav-green:   #2f9e2f;
+  --nav-blue:    #1f6fe0;
+  --nav-purple:  #7b1fb0;
+  --nav-pink:    #d61a5c;
   --ink:         var(--navy);
   --ink-soft:    #3f4a6b;  /* body copy — 8.7:1 on white                 */
   --muted:       #5a6382;  /* captions and labels — 5.9:1 on white       */
@@ -228,12 +237,13 @@ p { text-wrap: pretty; }
 .site-header {
   position: relative;
   overflow: hidden;
-  background: #fff;
+  background: var(--header-blue);
   border-bottom: 1px solid var(--line);
 }
-/* Faded balloons drifting at either edge. Decorative only, so they are
-   background images rather than markup — nothing for a screen reader to
-   announce, and they cannot push the layout around. */
+/* Scattered colour dots drifting at either edge — the confetti-circle motif
+   from the brand artwork. Decorative only, so they are background images
+   rather than markup — nothing for a screen reader to announce, and they
+   cannot push the layout around. */
 .site-header::before,
 .site-header::after {
   content: "";
@@ -243,11 +253,11 @@ p { text-wrap: pretty; }
   height: 17rem;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: .16;
+  opacity: .4;
   pointer-events: none;
 }
-.site-header::before { left: -3.5rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%28-8%2070%2095%29%22%3E%3Cellipse%20cx%3D%2270%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cellipse%20cx%3D%2256.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M66%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cpath%20d%3D%22M70%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%230e9cb4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%287%20152%2058%29%22%3E%3Cellipse%20cx%3D%22152%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23fe2269%22%2F%3E%3Cellipse%20cx%3D%22141.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M148%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23fe2269%22%2F%3E%3Cpath%20d%3D%22M152%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23fe2269%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-5%20118%20152%29%22%3E%3Cellipse%20cx%3D%22118%22%20cy%3D%22152%22%20rx%3D%2225%22%20ry%3D%2232.0%22%20fill%3D%22%23fd9900%22%2F%3E%3Cellipse%20cx%3D%22109.25%22%20cy%3D%22141.76%22%20rx%3D%225.0%22%20ry%3D%224.8%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M114%2C184.0%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23fd9900%22%2F%3E%3Cpath%20d%3D%22M118%2C189.0%20c7%2C12.5%20-9%2C22.5%20-2%2C40.0%22%20fill%3D%22none%22%20stroke%3D%22%23fd9900%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
-.site-header::after  { right: -3.5rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%289%20190%2095%29%22%3E%3Cellipse%20cx%3D%22190%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%234b0d8c%22%2F%3E%3Cellipse%20cx%3D%22176.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M186%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%234b0d8c%22%2F%3E%3Cpath%20d%3D%22M190%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%234b0d8c%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-6%20108%2058%29%22%3E%3Cellipse%20cx%3D%22108%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%233aae3a%22%2F%3E%3Cellipse%20cx%3D%2297.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M104%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%233aae3a%22%2F%3E%3Cpath%20d%3D%22M108%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%233aae3a%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%285%20142%20152%29%22%3E%3Cellipse%20cx%3D%22142%22%20cy%3D%22152%22%20rx%3D%2225%22%20ry%3D%2232.0%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cellipse%20cx%3D%22133.25%22%20cy%3D%22141.76%22%20rx%3D%225.0%22%20ry%3D%224.8%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M138%2C184.0%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%230e9cb4%22%2F%3E%3Cpath%20d%3D%22M142%2C189.0%20c7%2C12.5%20-9%2C22.5%20-2%2C40.0%22%20fill%3D%22none%22%20stroke%3D%22%230e9cb4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+.site-header::before { left: -3.5rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%2792%27%20r%3D%2740%27%20fill%3D%27%23e23b2e%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%2758%27%20r%3D%2722%27%20fill%3D%27%23fd9900%27%2F%3E%3Ccircle%20cx%3D%27112%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%233aae3a%27%2F%3E%3Ccircle%20cx%3D%2772%27%20cy%3D%27214%27%20r%3D%2728%27%20fill%3D%27%232b7fe0%27%2F%3E%3Ccircle%20cx%3D%27172%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%237a1fb8%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23ffce1a%27%2F%3E%3Ccircle%20cx%3D%27122%27%20cy%3D%2796%27%20r%3D%2710%27%20fill%3D%27%23fe2269%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%230e9cb4%27%2F%3E%3Ccircle%20cx%3D%27204%27%20cy%3D%2792%27%20r%3D%278%27%20fill%3D%27%233aae3a%27%2F%3E%3C%2Fsvg%3E"); }
+.site-header::after  { right: -3.5rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%27196%27%20cy%3D%2792%27%20r%3D%2738%27%20fill%3D%27%237a1fb8%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2758%27%20r%3D%2720%27%20fill%3D%27%23fe2269%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%232b7fe0%27%2F%3E%3Ccircle%20cx%3D%27182%27%20cy%3D%27208%27%20r%3D%2726%27%20fill%3D%27%233aae3a%27%2F%3E%3Ccircle%20cx%3D%2792%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%23fd9900%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23e23b2e%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%2796%27%20r%3D%2710%27%20fill%3D%27%23ffce1a%27%2F%3E%3Ccircle%20cx%3D%27226%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%230e9cb4%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%2796%27%20r%3D%278%27%20fill%3D%27%237a1fb8%27%2F%3E%3C%2Fsvg%3E"); }
 
 @media (max-width: 900px) {
   .site-header::before, .site-header::after { display: none; }
@@ -268,37 +278,50 @@ p { text-wrap: pretty; }
   height: auto;
 }
 
+.site-nav { width: 100%; }
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: .25rem .35rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: .4rem 1rem;
 }
 .site-nav a {
   display: block;
-  font-family: var(--font-display);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 700;
-  font-size: .97rem;
-  color: var(--navy);
+  font-size: clamp(1.05rem, .92rem + .55vw, 1.35rem);
+  letter-spacing: .005em;
+  color: var(--nav-color, var(--navy));
   text-decoration: none;
-  padding: .5rem .8rem;
+  padding: .5rem .75rem;
   border-radius: 999px;
   border-bottom: 3px solid transparent;
-  transition: background-color .16s ease, color .16s ease;
+  transition: background-color .16s ease, color .16s ease, border-color .16s ease;
 }
-.site-nav a:hover { background: var(--tint); color: var(--teal-deep); }
+.site-nav a:hover {
+  background: color-mix(in srgb, var(--nav-color, var(--teal)) 14%, #fff);
+  border-bottom-color: var(--nav-color, var(--teal));
+}
 
 .site-nav a[aria-current="page"] {
-  color: var(--teal-deep);
-  background: var(--tint);
-  border-bottom-color: var(--teal);
+  background: color-mix(in srgb, var(--nav-color, var(--teal)) 16%, #fff);
+  border-bottom-color: var(--nav-color, var(--teal));
   border-radius: 999px 999px 4px 4px;
 }
+
+/* The five hues in the word "alphabet" on the logo, left to right. */
+.site-nav li:nth-child(1) a { --nav-color: var(--nav-orange); }
+.site-nav li:nth-child(2) a { --nav-color: var(--nav-green); }
+.site-nav li:nth-child(3) a { --nav-color: var(--nav-blue); }
+.site-nav li:nth-child(4) a { --nav-color: var(--nav-purple); }
+.site-nav li:nth-child(5) a { --nav-color: var(--nav-pink); }
 
 :target { scroll-margin-top: 1.5rem; }
 
 @media (max-width: 759px) {
-  .site-nav a { font-size: .9rem; padding: .45rem .6rem; }
+  .site-nav ul { justify-content: center; gap: .3rem .5rem; }
+  .site-nav a { font-size: 1rem; padding: .45rem .6rem; }
 }
 
 /* the homepage h1 sits mid-page now, so it reads at section scale */
@@ -361,6 +384,21 @@ p { text-wrap: pretty; }
   background: color-mix(in srgb, var(--accent, var(--teal)) 13%, #fff);
   border-radius: 999px;
   padding: .45rem 1.1rem;
+}
+/* When the pills are links (What We Treat page), keep the pill look and add
+   a clear hover/focus affordance. */
+.strip a {
+  display: block;
+  margin: -.45rem -1.1rem;
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+}
+.strip a:hover {
+  color: inherit;
+  background: color-mix(in srgb, var(--accent, var(--teal)) 22%, #fff);
+  text-decoration: underline;
 }
 
 /* ── cards ────────────────────────────────────────────────────────────── */
@@ -640,8 +678,18 @@ p { text-wrap: pretty; }
   box-shadow: var(--shadow-sm);
   min-width: 0;
 }
-.contact-card h3 { margin-bottom: .15rem; }
+.contact-card h3 { margin-bottom: 1.1rem; }
 .contact-card .role { color: var(--muted); font-size: .95rem; margin-bottom: 1.1rem; }
+/* credentials sit on the same line as the name, in a lighter weight */
+.contact-card h3 .role-inline {
+  display: inline;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--muted);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
 
 .contact-list { display: grid; gap: .85rem; }
 .contact-list li { display: grid; gap: .1rem; min-width: 0; }
@@ -679,6 +727,29 @@ p { text-wrap: pretty; }
 }
 .address-card a:hover { text-decoration: underline; }
 
+.address-card .office-email {
+  margin-top: .75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.address-card .office-email a { font-size: clamp(1rem, .97rem + .2vw, 1.1rem); }
+
+/* embedded Google map on the contact page */
+.map-embed {
+  margin-top: 1.25rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  line-height: 0;
+}
+.map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 340px;
+  border: 0;
+}
+
 /* ── closing call-to-action band ──────────────────────────────────────── */
 .cta-band {
   background: var(--tint-navy);
@@ -710,11 +781,11 @@ p { text-wrap: pretty; }
   height: 16rem;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: .13;
+  opacity: .2;
   pointer-events: none;
 }
-.site-footer::before { left: -3rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%28-8%2070%2095%29%22%3E%3Cellipse%20cx%3D%2270%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%238fe3f2%22%2F%3E%3Cellipse%20cx%3D%2256.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M66%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%238fe3f2%22%2F%3E%3Cpath%20d%3D%22M70%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%238fe3f2%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%287%20152%2058%29%22%3E%3Cellipse%20cx%3D%22152%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23ffd166%22%2F%3E%3Cellipse%20cx%3D%22141.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M148%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23ffd166%22%2F%3E%3Cpath%20d%3D%22M152%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23ffd166%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
-.site-footer::after  { right: -3rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20260%20300%22%3E%3Cg%20transform%3D%22rotate%289%20190%2095%29%22%3E%3Cellipse%20cx%3D%22190%22%20cy%3D%2295%22%20rx%3D%2240%22%20ry%3D%2251.2%22%20fill%3D%22%23f7a8c4%22%2F%3E%3Cellipse%20cx%3D%22176.0%22%20cy%3D%2278.616%22%20rx%3D%228.0%22%20ry%3D%227.68%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M186%2C146.2%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23f7a8c4%22%2F%3E%3Cpath%20d%3D%22M190%2C151.2%20c7%2C20.0%20-9%2C36.0%20-2%2C64.0%22%20fill%3D%22none%22%20stroke%3D%22%23f7a8c4%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate%28-6%20108%2058%29%22%3E%3Cellipse%20cx%3D%22108%22%20cy%3D%2258%22%20rx%3D%2229%22%20ry%3D%2237.12%22%20fill%3D%22%23a8e6a3%22%2F%3E%3Cellipse%20cx%3D%2297.85%22%20cy%3D%2246.1216%22%20rx%3D%225.800000000000001%22%20ry%3D%225.568%22%20fill%3D%22%23fff%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M104%2C95.12%20l4%2C-7%20l4%2C7%20z%22%20fill%3D%22%23a8e6a3%22%2F%3E%3Cpath%20d%3D%22M108%2C100.12%20c7%2C14.5%20-9%2C26.1%20-2%2C46.400000000000006%22%20fill%3D%22none%22%20stroke%3D%22%23a8e6a3%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+.site-footer::before { left: -3rem;  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%2760%27%20cy%3D%2796%27%20r%3D%2740%27%20fill%3D%27%238fe3f2%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%2760%27%20r%3D%2722%27%20fill%3D%27%23ffe38a%27%2F%3E%3Ccircle%20cx%3D%27112%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%23a8e6a3%27%2F%3E%3Ccircle%20cx%3D%2772%27%20cy%3D%27214%27%20r%3D%2728%27%20fill%3D%27%239cc4f5%27%2F%3E%3Ccircle%20cx%3D%27172%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%23c9a3ef%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23f7a8c4%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%23ffc266%27%2F%3E%3C%2Fsvg%3E"); }
+.site-footer::after  { right: -3rem; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20260%20300%27%3E%3Ccircle%20cx%3D%27196%27%20cy%3D%2792%27%20r%3D%2738%27%20fill%3D%27%23f7a8c4%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2760%27%20r%3D%2720%27%20fill%3D%27%23a8e6a3%27%2F%3E%3Ccircle%20cx%3D%27150%27%20cy%3D%27150%27%20r%3D%2716%27%20fill%3D%27%239cc4f5%27%2F%3E%3Ccircle%20cx%3D%27182%27%20cy%3D%27208%27%20r%3D%2726%27%20fill%3D%27%23ffe38a%27%2F%3E%3Ccircle%20cx%3D%2792%27%20cy%3D%27140%27%20r%3D%2714%27%20fill%3D%27%238fe3f2%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27206%27%20r%3D%2718%27%20fill%3D%27%23c9a3ef%27%2F%3E%3Ccircle%20cx%3D%27226%27%20cy%3D%27150%27%20r%3D%2712%27%20fill%3D%27%23ffc266%27%2F%3E%3C%2Fsvg%3E"); }
 @media (max-width: 900px) { .site-footer::before, .site-footer::after { display: none; } }
 .site-footer .wrap { position: relative; z-index: 1; }
 .site-footer a { color: #ffffff; text-decoration: none; }
@@ -761,6 +832,8 @@ p { text-wrap: pretty; }
   font-size: 1.3rem;
   margin-bottom: .45rem;
 }
+.footer-email { margin-top: .6rem; }
+.footer-email a { overflow-wrap: anywhere; }
 .footer-contact a { overflow-wrap: anywhere; }
 
 .footer-bottom {

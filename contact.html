@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Alphabet Soup — Oral Motor Specialists: speech, feeding and myofunctional therapy">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fdf6ec">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
@@ -72,79 +72,58 @@
 
 <main id="main">
 
-  <section class="page-head">
-    <div class="wrap">
-      <p class="eyebrow a-teal">Contact us</p>
-      <h1>Get in touch</h1>
-      <p class="lede">
-        Call or email either clinician directly &mdash; whichever is easier. We are
-        glad to answer questions before you decide anything.
-      </p>
-    </div>
-  </section>
-
   <section class="section">
     <div class="wrap">
 
-      <h2>Our clinicians</h2>
-
-      <div class="contact-grid">
-
-        <div class="contact-card a-teal">
-          <h3>Bonnie Wilder</h3>
-          <p class="role">M.A., CCC-SLP &middot; Oral Motor Specialist</p>
-          <ul class="contact-list">
-            <li>
-              <span class="label">Phone</span>
-              <a href="tel:+19177639785">+1 (917) 763-9785</a>
-            </li>
-            <li>
-              <span class="label">Email</span>
-              <a href="mailto:bmwslp83@gmail.com">bmwslp83@gmail.com</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="contact-card">
-          <h3>Malka Strasberg</h3>
-          <p class="role">M.S., CCC-SLP, C/NDT</p>
-          <ul class="contact-list">
-            <li>
-              <span class="label">Phone</span>
-              <a href="tel:+19178259745">(917) 825-9745</a>
-            </li>
-            <li>
-              <span class="label">Email</span>
-              <a href="mailto:mstrasberg@gmail.com">mstrasberg@gmail.com</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
+      <!-- ─────────────────────── OUR OFFICE (first) ─────────────────────── -->
       <div class="address-card">
         <p class="eyebrow">Our office</p>
-        <h3>Alphabet Soup &mdash; Oral Motor Specialists</h3>
+        <h1 class="h1-compact">Alphabet Soup &mdash; Oral Motor Specialists</h1>
         <address>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=83+East+Avenue+Suite+313+Norwalk+CT+06851" target="_blank" rel="noopener">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=83+East+Avenue+Suite+313+Norwalk+CT+06851" target="_blank" rel="noopener">
             83 East Avenue, Suite&nbsp;313<br>
             Norwalk, Connecticut 06851
           </a>
         </address>
-        <p style="margin-top:.75rem;color:var(--muted);font-size:.95rem">
-          Bonnie and Malka share this office. The address above opens in Google Maps.
+        <p class="office-email">
+          <a href="mailto:AlphabetSoupSpeechTherapy@gmail.com">AlphabetSoupSpeechTherapy@gmail.com</a>
         </p>
 
-        <!-- ═══════════════════════════════════════════════════════════════
-             EDIT ME &middot; service area
-             Same list of towns as the home page. If you change one, change
-             both so they stay consistent.
-             ═══════════════════════════════════════════════════════════ -->
-        <p style="margin-top:.75rem;color:var(--muted);font-size:.95rem">
-          We see families from Norwalk and throughout Fairfield County,
-          Connecticut &mdash; including Westport, Wilton, Darien, New Canaan,
-          Stamford, Fairfield, and Ridgefield.
-        </p>
+        <!-- Embedded Google map. Tapping it, or the address above, opens
+             turn-by-turn directions to the office. -->
+        <div class="map-embed">
+          <iframe
+            title="Map to Alphabet Soup — 83 East Avenue, Suite 313, Norwalk, CT 06851"
+            src="https://www.google.com/maps?q=83+East+Avenue+Suite+313+Norwalk+CT+06851&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- ─────────────────────── CLINICIANS ─────────────────────── -->
+      <h2 style="margin-top:2.5rem">Our clinicians</h2>
+      <p class="lede">
+        Call or email either clinician directly &mdash; whichever is easier. We are
+        glad to answer questions before you decide anything.
+      </p>
+
+      <div class="contact-grid">
+
+        <div class="contact-card a-teal">
+          <h3>Bonnie Wilder <span class="role-inline">M.A., CCC-SLP</span></h3>
+          <ul class="contact-list">
+            <li><a href="tel:+19177639785">(917)&nbsp;763-9785</a></li>
+            <li><a href="mailto:bmwslp83@gmail.com">bmwslp83@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <h3>Malka Strasberg <span class="role-inline">M.S., CCC-SLP, C/NDT</span></h3>
+          <ul class="contact-list">
+            <li><a href="tel:+19178259745">(917)&nbsp;825-9745</a></li>
+            <li><a href="mailto:mstrasberg@gmail.com">mstrasberg@gmail.com</a></li>
+          </ul>
+        </div>
+
       </div>
 
       <p class="measure" style="margin-top:2rem;color:var(--muted)">
@@ -162,21 +141,22 @@
     <div class="footer-grid">
 
       <div class="footer-col">
-        <h2>Our office</h2>
         <p class="footer-name">Alphabet Soup</p>
         <address>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=83+East+Avenue+Suite+313+Norwalk+CT+06851" target="_blank" rel="noopener">
             83 East Avenue, Suite&nbsp;313, Norwalk, Connecticut 06851
           </a>
         </address>
+        <p class="footer-email">
+          <a href="mailto:AlphabetSoupSpeechTherapy@gmail.com">AlphabetSoupSpeechTherapy@gmail.com</a>
+        </p>
       </div>
 
       <div class="footer-col">
-        <h2>Our clinicians</h2>
         <ul class="footer-people">
           <li>
             <strong>Bonnie Wilder</strong>
-            <a href="tel:+19177639785">+1 (917) 763-9785</a>
+            <a href="tel:+19177639785">(917) 763-9785</a>
             <a href="mailto:bmwslp83@gmail.com">bmwslp83@gmail.com</a>
           </li>
           <li>
