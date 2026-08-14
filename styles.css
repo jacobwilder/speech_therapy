@@ -449,8 +449,15 @@ p { text-wrap: pretty; }
   background: #fdfeff;
   color: var(--ink-soft);
 }
-.box-link h2, .box-link h3 { margin-bottom: .6rem; }
-.box-link:hover h2, .box-link:hover h3 { color: var(--teal-deep); }
+.box-link h2, .box-link h3 { margin-bottom: .6rem; color: var(--accent-ink, var(--ink)); }
+.box-link:hover h2, .box-link:hover h3 { color: var(--accent-ink, var(--teal-deep)); }
+
+/* Services boxes — one colour each for the left edge and the bold heading.
+   Edge takes --accent (vivid); heading takes --accent-ink (legible). */
+.box-orange { --accent: #fd9900; --accent-ink: #c96a09; }
+.box-blue   { --accent: #2b7fe0; --accent-ink: #1c66cc; }
+.box-green  { --accent: #37b037; --accent-ink: #2f9e2f; }
+.box-pink   { --accent: #fe2269; --accent-ink: #d61a5c; }
 .box-cta {
   display: inline-block;
   margin-top: 1.1rem;
