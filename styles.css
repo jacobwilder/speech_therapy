@@ -862,3 +862,26 @@ p { text-wrap: pretty; }
 .center .lede { margin-inline: auto; }
 .center .eyebrow { justify-content: center; }
 .mt-0 { margin-top: 0; }
+
+/* contact page: general email sits under the map */
+.address-card .office-email--below-map { margin-top: 1rem; }
+
+/* What We Treat: each therapy gets its own tinted panel */
+.topic {
+  background: color-mix(in srgb, var(--accent, var(--teal)) 14%, #fff);
+  border: 1px solid color-mix(in srgb, var(--accent, var(--teal)) 24%, var(--line));
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+.topic .callout { background: #fff; }
+
+/* Phone links: on a computer (mouse/trackpad), clicking tel: opens FaceTime
+   on a Mac. Show the number as plain text there; phones still tap to call. */
+@media (hover: hover) and (pointer: fine) {
+  a[href^="tel:"] {
+    pointer-events: none;
+    cursor: text;
+    color: inherit;
+    text-decoration: none;
+  }
+}
